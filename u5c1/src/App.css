@@ -1,0 +1,21 @@
+
+button{
+ height: 50px;
+ width: 100px;
+ justify-content: space-around;
+ padding: auto;
+ margin: 20px;
+ background-color: rgb(214, 7, 7);
+  color: white;
+  font-size: large;
+}
+.banner{
+  
+ display: flex;
+ justify-content: space-around;
+ font-size: large;
+}
+.text{
+  font-size: 40px;
+  font-weight: bold;
+}

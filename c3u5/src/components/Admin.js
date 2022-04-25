@@ -1,5 +1,6 @@
-import { useContext, Navigate, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import {useNavigate} from 'react-router-dom';
 
 export const Admin = () => {
   const [userAdmin, setUserAdmin] = useState({})
@@ -9,8 +10,9 @@ export const Admin = () => {
   const [username, setUsername] = useState()
   const [password, setpassword] = useState()
   const [intern, setIntern] = useState()
+  const navigate  = useNavigate()
   if(!isAuth){
-    return <Navigate to ={"/login"}/>
+    navigate('/login');
   }
     return ( 
       <form className="createEmployee">

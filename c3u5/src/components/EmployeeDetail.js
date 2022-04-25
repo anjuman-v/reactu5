@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../App.css"
 import { AuthContext } from "../Context/AuthContext";
 export const EmployeeDetail = () => {
   const [userDetail, setUserDetail] = useState({})
   const {isAuth} = useContext(AuthContext);
   const {id} = useParams();
+  const navigate  = useNavigate()
   useEffect(()=>{
 
     async function getData(){
@@ -16,7 +17,9 @@ export const EmployeeDetail = () => {
   },[])
 console.log(userDetail)
 if(!isAuth){
-  return <Navigate to ={"/login"}/>
+  return (
+    navigate('/login')
+  )
 }
     return (
     <>

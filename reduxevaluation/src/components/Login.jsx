@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions";
-import { store } from "../redux/store";
+import { login } from "../Redux/actions";
+import { store } from "../Redux/store";
 import { useNavigate } from 'react-router-dom';
 
 

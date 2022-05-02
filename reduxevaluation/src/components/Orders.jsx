@@ -1,6 +1,14 @@
+
+import {useDispatch,  useSelector} from "react-redux"
+
 export const Orders = () => {
   //  Get all data when admin logs in and populate it
   // store it in redux
+  const orders = useSelector((store) => store.order) || [];
+
+
+
+
 
   return (
     <div>
@@ -25,20 +33,25 @@ export const Orders = () => {
             </tr>
           </thead>
           <tbody>
+            {orders.map((el) => {
+
+           return(
             <tr className="orders-row">
-              <td className="id"></td>
-              <td className="problem"></td>
-              <td className="owner"></td>
-              <td className="status"></td>
-              <td className="cost"></td>
+              <td className="id">{el.id}</td>
+              <td className="problem">{el.problem}</td>
+              <td className="owner">{el.owner}</td>
+              <td className="status">{el.status}</td>
+              <td className="cost">{el.cost}</td>
               <td className="change-status">
                 {/* Show select dropdown only if status is Not Accepted */}
-                <select className="changeStatus" name="changeStatus">
+                {el.status ? <select className="changeStatus" name="changeStatus">
                   <option value="Pending">Pending</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Done">Done</option>
                   <option value="Not Accepted">Not Accepted</option>
-                </select>
+                </select> : "Not Accepted"}
+                
+                
               </td>
               <td className="accept">
                 {/* Show this button only if status is Not Accepted */}
@@ -46,6 +59,8 @@ export const Orders = () => {
                 <button>Accept</button>
               </td>
             </tr>
+           )
+             })}
           </tbody>
         </table>
       </div>
